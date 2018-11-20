@@ -1,0 +1,17 @@
+<div class="container">
+  <mat-card style="margin: 1%"
+            *ngFor="let student of students$ | async">
+
+    <mat-card-content>
+      <mat-list>
+        <mat-list-item><b>Nombre:</b>{{student.name}}</mat-list-item>
+        <mat-list-item><b>id:</b>{{student.id}}</mat-list-item>
+        <mat-list-item><b>numero:</b>{{student.numero}}</mat-list-item>
+      </mat-list>
+
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button>Ok</button>
+    </mat-card-actions>
+  </mat-card>
+</div>

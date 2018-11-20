@@ -1,27 +1,54 @@
-# NoSQL
+# SEO con Universal
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.7.
+1. `ng add @ng-toolkit/universal`
+2. `npm run build:prod`
+3. `npm run server`
 
-## Development server
+##firebase
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+1. `npm i xmlhttprequest ws -s`
+2. `npm i bufferutil utf-8-validate -s`
+3. en server.ts poner
 
-## Code scaffolding
+```typescript
+(global as any).WebSocket = require('ws');
+(global as any).XMLHttpRequest = require('xmlhttprequest').XMLHttpRequest;
+```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+4. Para deploy perpararlo con:
 
-## Build
+```bash
+ng add @ng-toolkit/serverless --provider firebase --firebaseProject POJECTID
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+5. Para ejecutar deploy y subirlo a firebase `npm run build:prod:deploy`
 
-## Running unit tests
+## Meta tags
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```typescript
 
-## Running end-to-end tests
+import { Meta, Title } from '@angular/platform-browser';
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
-## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+  constructor(
+    private fireBaseSvc: FireBaseService,
+    private meta: Meta,
+    private titleService: Title,
+  ) {}
+
+ // Set meta tags
+    this.meta.updateTag({ name: 'twitter:card', content: 'summary' });
+    this.meta.updateTag({
+      name: 'keywords',
+      content: 'inmobiliaria,renta,venta',
+    });
+    this.meta.updateTag({
+      name: 'description',
+      content:
+        'Inmobiliaria Cobian Venta y renta de casas en Puebla. inmobiliariacobian@gmail.com. Bienvenidos a Inmobiliaria Cobian.',
+    });
+    // ... and so on
+  }
+
+```

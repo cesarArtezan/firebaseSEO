@@ -1,0 +1,93 @@
+<div class="container">
+  <div class="row">
+    <!-- inputs -->
+    <div class="col">
+      <h1>Registrar Alumno</h1>
+      <div class="row"
+           style="margin-left: 1%">
+        <mat-form-field appearance="outline">
+          <mat-label>Nombre Alumno</mat-label>
+          <input [(ngModel)]="name"
+                 matInput
+                 placeholder="Nombre">
+        </mat-form-field>
+      </div>
+      <div class="row"
+           style="margin-left: 1%">
+        <mat-form-field appearance="outline">
+          <mat-label>Matricula</mat-label>
+          <input [(ngModel)]="number"
+                 type="number"
+                 matInput
+                 placeholder="ID">
+        </mat-form-field>
+      </div>
+      <div class="row"
+           style="margin-left: 1%">
+        <button *ngIf="!isEdit"
+                mat-raised-button
+                color="primary"
+                [disabled]="!number || !name"
+                (click)="addItem(name, number)">Aceptar
+        </button>
+        <button *ngIf="isEdit"
+                mat-raised-button
+                color="primary"
+                [disabled]="!number || !name"
+                (click)="editItem()">Editar
+        </button>
+        <button *ngIf="isEdit"
+                mat-raised-button
+                color="warn"
+                [disabled]="!number || !name"
+                (click)="cancel()">Cancelar
+        </button>
+      </div>
+
+    </div>
+    <div class="col">
+
+      <mat-card>
+        <h2>Lista</h2>
+        <div class="parent20">
+          <div class="child20">
+            <ul>
+              <div class="row"
+                   *ngFor="let student of students$ | async">
+                <div class="col">
+
+                  <b>
+                    <p matline>{{student.name}}</p>
+                  </b>
+                  <p matline>{{student.numero}}</p>
+
+
+                </div>
+                <div class="col"
+                     style="text-align: right">
+                  <p>
+                    <button mat-icon-button
+                            color="primary"
+                            (click)="startEdit(student)">
+                      <mat-icon>edit</mat-icon>
+                    </button>
+                    <button mat-icon-button
+                            color="primary"
+                            (click)="deleteItem(student.id)">
+                      <mat-icon color="warn">delete</mat-icon>
+                    </button>
+                  </p>
+                </div>
+              </div>
+            </ul>
+          </div>
+
+        </div>
+
+      </mat-card>
+
+    </div>
+
+  </div>
+
+</div>

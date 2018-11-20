@@ -1,0 +1,38 @@
+// .col {
+//   display: flex;
+//   flex-direction: column;
+//   flex-wrap: wrap;
+//   width: 50%;
+
+
+// }
+// .row {
+//   display: flex;
+//   flex-direction: row;
+//   flex-wrap: wrap;
+//   // & div {
+//   //   width: 50%;
+//   //   margin: 3%;
+//   //   @media (max-width: 800px) {
+//   //     width: 100%;
+//   //   }
+//   // }
+// }
+// .ml-2 {
+//   margin-left: 5%;
+// }
+.parent20 {
+  height: 60em;
+  overflow: auto;
+}
+.child20 {
+  ul {
+      list-style-type: none;
+    }
+}
+hr {
+  display: block;
+  margin: 10px 0 10px 0;
+  border-top: 1px solid rgba(0, 0, 0, .12);
+  width: 100%
+}
