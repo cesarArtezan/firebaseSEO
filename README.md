@@ -22,6 +22,10 @@ ng add @ng-toolkit/serverless --provider firebase --firebaseProject POJECTID
 ```
 
 5. Para ejecutar deploy y subirlo a firebase `npm run build:prod:deploy`
+6. Si hay error en el server ir a node_modules/angularfire2/firebase.app.module.js changed
+   `import * as firebase from 'firebase/app';`
+   to
+   `import firebase from 'firebase/app';`
 
 ## Meta tags
 
